@@ -16,3 +16,26 @@ nos devuelve el código es el mismo valor en cada iteración.
     > 3
     > 4
 ```
+
+SOLUCIÓN:
+
+1.- 
+  ```
+      > 5
+      > 5
+      > 5
+      > 5
+  ```
+
+El problema es que el valor que se pinta en la consola es el último que recibe la variable "i"
+
+2.- Si queremos obtener ese output podría servir el usar otra variable, de tipo contador e ir sumando 1
+
+```
+    for (var i = 0; i < 5; i++) {
+        var j = 0;
+        setTimeout(function () {
+            console.log(j++);
+        }, 1000)
+    }
+```
