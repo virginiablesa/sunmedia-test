@@ -16,3 +16,70 @@ en este navegador. ¿Sabrías identificar cuál es el problema? ¿Qué solución
  propones?
 
 **PS**: No es estrictamente necesario tener Internet Explorer para poder identificar y/o resolver el bug. 
+
+SOLUCIÓN:
+
+1.- La variable rgb y colors quedan con el mismo valor. La variable wb se mantiene con su valor inicial:
+
+    ```
+      rgb = {
+        red: "#FF0000",
+        green: "#00FF00",
+        blue: "#0000FF",
+        white: "#FFFFFF",
+        black: "#000000"
+      }
+      wb = {
+        red: "#FF0000",
+        green: "#00FF00",
+        blue: "#0000FF"
+      }
+      colors = {
+        red: "#FF0000",
+        green: "#00FF00",
+        blue: "#0000FF",
+        white: "#FFFFFF",
+        black: "#000000"
+      }
+
+    ```
+
+2.- Para mantener el valor de rgb basta con asignar un objeto vacío al  objeto de destino
+
+    ```
+        var rgb = {
+            red: "#FF0000",
+            green: "#00FF00",
+            blue: "#0000FF"
+        };
+
+        var wb = {
+            white: "#FFFFFF",
+            black: "#000000"
+        };
+
+        var colors = Object.assign({}, wb, rgb);
+
+    ```
+
+  3.- El código no funciona en IE porque no soporta el método assign
+    Posibles soluciones:
+    A) Usar alguno de los polyfills que existen para el método assign o usar alguna herramienta para transpilar el código como babel
+
+    B) Modificar el código para no usar la función  assign, por ejemplo:
+
+        ```
+          var keys = Object.keys(rgb)
+          var currentKey;
+          var colors ={};
+          for (let i = 0; i<keys.length; i++) {
+            currentKey = keys[i]
+            colors[currentKey] = rgb[currentKey];
+          };
+
+          keys = Object.keys(wb)
+          for (let i = 0; i<keys2.length; i++) {
+            currentKey = keys2[i]
+            colors[currentKey] = wb[currentKey];
+          };
+        ```
