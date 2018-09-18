@@ -11,7 +11,6 @@ export default class EventManagerFactory{
      * @return {Function}
      */
     static create(events, types) {
-      debugger;
       let selectedEventsData = (events).filter(event => types.indexOf(event.type) !== -1);
       let selectedEvents = [];
       let func = (time, data) => console.log(`At second ${time}: ${JSON.stringify(data)}`);
