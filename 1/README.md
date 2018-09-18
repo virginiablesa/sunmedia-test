@@ -69,6 +69,16 @@ SOLUCIÓN:
     B) Modificar el código para no usar la función  assign, por ejemplo:
 
         ```
+         var rgb = {
+              red: "#FF0000",
+              green: "#00FF00",
+              blue: "#0000FF"
+          };
+
+          var wb = {
+              white: "#FFFFFF",
+              black: "#000000"
+          };
           var keys = Object.keys(rgb)
           var currentKey;
           var colors ={};
@@ -78,7 +88,7 @@ SOLUCIÓN:
           };
 
           keys = Object.keys(wb)
-          for (let i = 0; i<keys2.length; i++) {
+          for (let i = 0; i<keys.length; i++) {
             currentKey = keys2[i]
             colors[currentKey] = wb[currentKey];
           };
