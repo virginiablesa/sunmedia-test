@@ -33,7 +33,7 @@ export default class EventManager{
       let time = 0;
       let _this = this;
       setInterval(function(){
-        _this.getCurrentEvent(time);
+        _this.getAndExecutedCurrentEvent(time);
         time++;
       }, 1000);
     }
