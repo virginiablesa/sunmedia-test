@@ -89,7 +89,7 @@ SOLUCIÓN:
 
           keys = Object.keys(wb)
           for (let i = 0; i<keys.length; i++) {
-            currentKey = keys2[i]
+            currentKey = keys[i]
             colors[currentKey] = wb[currentKey];
           };
         ```
